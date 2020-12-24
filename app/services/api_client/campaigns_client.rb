@@ -11,7 +11,7 @@ module ApiClient
     def all
       res = connection.get(BASE_URI)
       res = handle_response(response: res)
-      Rails.logger.info "#{res.count} campaigns fetched from remote"
+      Rails.logger.info "###### #{res.count} campaigns fetched from remote ########"
       res
     end
 

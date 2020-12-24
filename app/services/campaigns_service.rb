@@ -13,7 +13,7 @@ class CampaignsService < BaseService
     rows = process_insertion(type: 'Campaign', records: campaigns)
 
     ids = rows.ids
-    Rails.logger.info "#{ids.count} campaigns inserted into db"
+    Rails.logger.info "######### #{ids.count} campaigns inserted into db ###########"
     ids = Campaign.select(:id, :source_id).where(id: ids).pluck(:id, :source_id)
     insert_quotas(ids: ids)
   end
@@ -28,7 +28,7 @@ class CampaignsService < BaseService
 
     rows = process_insertion(type: 'CampaignQuota', records: quotas, recursive: true)
 
-    Rails.logger.info "#{rows.ids.count} campaign_quotas inserted into db"
+    Rails.logger.info "###### #{rows.ids.count} campaign_quotas inserted into db #########"
     rows
   end
 
